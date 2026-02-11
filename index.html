@@ -500,9 +500,35 @@
         margin-top: 0.2rem;
       }
 
+      input[aria-invalid='true'],
+      select[aria-invalid='true'] {
+        border-color: #d64545;
+      }
+
+      .field-error {
+        margin: 0.35rem 0 0;
+        color: #c63939;
+        font-size: 0.82rem;
+        line-height: 1.25;
+        min-height: 1.05rem;
+      }
+
       .form-note {
         color: var(--text-muted);
         font-size: 0.87rem;
+      }
+
+      .form-status {
+        margin: 0.1rem 0 0;
+        font-size: 0.88rem;
+      }
+
+      .form-status[data-state='success'] {
+        color: #1f8a54;
+      }
+
+      .form-status[data-state='error'] {
+        color: #c63939;
       }
 
       .faq {
@@ -892,18 +918,22 @@
           </div>
 
           <form
-            action="https://hook.eu1.make.com/replace-with-your-webhook-id"
+            id="waitlistForm"
+            action="https://hook.eu1.make.com/6n4p2lfnj41wkp4kjge0ohde4wcnyuc9"
             method="post"
             aria-describedby="waitlist-note"
+            novalidate
           >
             <div class="form-grid">
               <div>
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" autocomplete="name" required />
+                <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-error" />
+                <p class="field-error" id="name-error"></p>
               </div>
               <div>
                 <label for="email">Work email</label>
-                <input id="email" name="email" type="email" autocomplete="email" required />
+                <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" />
+                <p class="field-error" id="email-error"></p>
               </div>
               <div>
                 <label for="business">Company name</label>
@@ -911,24 +941,27 @@
               </div>
               <div>
                 <label for="volume">How many invoices per month?</label>
-                <select id="volume" name="invoice_volume" required>
+                <select id="volume" name="invoice_volume" required aria-describedby="volume-error">
                   <option value="" selected disabled>Select a range</option>
                   <option value="1-20">1-20</option>
                   <option value="21-50">21-50</option>
                   <option value="51-100">51-100</option>
                   <option value="100+">100+</option>
                 </select>
+                <p class="field-error" id="volume-error"></p>
               </div>
             </div>
 
             <label class="checkbox" for="consent">
-              <input id="consent" name="consent" type="checkbox" required />
+              <input id="consent" name="consent" type="checkbox" required aria-describedby="consent-error" />
               <span>I agree to be contacted about early access and product updates.</span>
             </label>
+            <p class="field-error" id="consent-error"></p>
 
             <input type="hidden" name="source" value="invora-landing" />
 
-            <button class="button button-primary" type="submit">Join waitlist</button>
+            <button class="button button-primary" type="submit" id="waitlistSubmit">Join waitlist</button>
+            <p class="form-status" id="waitlist-status" role="status" aria-live="polite"></p>
             <p class="form-note" id="waitlist-note">
               We will only use your details to contact you about Invora.
             </p>
@@ -978,6 +1011,128 @@
           syncTheme();
           if (mql.addEventListener) mql.addEventListener('change', syncTheme);
           else if (mql.addListener) mql.addListener(syncTheme);
+        }
+
+        var form = document.getElementById('waitlistForm');
+        var submitButton = document.getElementById('waitlistSubmit');
+        var statusNode = document.getElementById('waitlist-status');
+
+        function getErrorNode(field) {
+          return document.getElementById(field.id + '-error');
+        }
+
+        function setStatus(message, state) {
+          if (!statusNode) return;
+          statusNode.textContent = message;
+          statusNode.setAttribute('data-state', state || '');
+        }
+
+        function clearStatus() {
+          if (!statusNode) return;
+          statusNode.textContent = '';
+          statusNode.removeAttribute('data-state');
+        }
+
+        function getValidationMessage(field) {
+          if (field.validity.valueMissing) {
+            if (field.id === 'name') return 'Please enter your name.';
+            if (field.id === 'email') return 'Please enter your work email.';
+            if (field.id === 'volume') return 'Please choose your monthly invoice range.';
+            if (field.id === 'consent') return 'Please confirm consent to continue.';
+            return 'Please fill out this field.';
+          }
+          if (field.type === 'email' && field.validity.typeMismatch) {
+            return 'Please enter a valid email address.';
+          }
+          return '';
+        }
+
+        function setFieldError(field, message) {
+          var errorNode = getErrorNode(field);
+          field.setAttribute('aria-invalid', 'true');
+          if (errorNode) {
+            errorNode.textContent = message;
+          }
+        }
+
+        function clearFieldError(field) {
+          var errorNode = getErrorNode(field);
+          field.removeAttribute('aria-invalid');
+          if (errorNode) {
+            errorNode.textContent = '';
+          }
+        }
+
+        function validateField(field) {
+          if (field.checkValidity()) {
+            clearFieldError(field);
+            return true;
+          }
+          setFieldError(field, getValidationMessage(field));
+          return false;
+        }
+
+        if (form) {
+          var requiredFields = Array.prototype.slice.call(form.querySelectorAll('[required]'));
+
+          requiredFields.forEach(function (field) {
+            var eventName = field.type === 'checkbox' || field.tagName === 'SELECT' ? 'change' : 'input';
+            field.addEventListener(eventName, function () {
+              clearFieldError(field);
+              clearStatus();
+            });
+          });
+
+          form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            clearStatus();
+
+            var isFormValid = true;
+            var firstInvalidField = null;
+
+            requiredFields.forEach(function (field) {
+              var valid = validateField(field);
+              if (!valid && !firstInvalidField) {
+                firstInvalidField = field;
+              }
+              if (!valid) {
+                isFormValid = false;
+              }
+            });
+
+            if (!isFormValid) {
+              setStatus('Please check the highlighted fields and try again.', 'error');
+              if (firstInvalidField) firstInvalidField.focus();
+              return;
+            }
+
+            if (submitButton) {
+              submitButton.disabled = true;
+              submitButton.textContent = 'Sending...';
+            }
+
+            fetch(form.action, {
+              method: form.method || 'POST',
+              body: new FormData(form)
+            })
+              .then(function (response) {
+                if (!response.ok) {
+                  throw new Error('Request failed');
+                }
+                form.reset();
+                requiredFields.forEach(clearFieldError);
+                setStatus('Thanks, you are on the waitlist. We will reach out soon.', 'success');
+              })
+              .catch(function () {
+                setStatus('Could not submit the form right now. Please try again in a moment.', 'error');
+              })
+              .finally(function () {
+                if (submitButton) {
+                  submitButton.disabled = false;
+                  submitButton.textContent = 'Join waitlist';
+                }
+              });
+          });
         }
 
         var year = document.getElementById('year');
