@@ -37,6 +37,7 @@
 
     <style>
       :root {
+        --anchor-offset: 3rem;
         color-scheme: light;
         --bg: #fafafa;
         --bg-soft: #f2f2f3;
@@ -87,6 +88,11 @@
           var(--bg);
         color: var(--text);
         line-height: 1.55;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: var(--anchor-offset);
       }
 
       .container {
