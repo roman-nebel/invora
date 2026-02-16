@@ -8,8 +8,16 @@
       name="description"
       content="Invoicy helps small business owners keep invoices organized in one shared table, so accounting stays simple and stress-free."
     />
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0e0f12" media="(prefers-color-scheme: dark)" />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0e0f12"
+      media="(prefers-color-scheme: dark)"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Invoicy — invoices in one table" />
     <meta
@@ -21,9 +29,11 @@
     <script>
       (function () {
         var root = document.documentElement;
-        var mql = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+        var mql = window.matchMedia
+          ? window.matchMedia("(prefers-color-scheme: dark)")
+          : null;
         if (mql && mql.matches) {
-          root.setAttribute('data-theme', 'dark');
+          root.setAttribute("data-theme", "dark");
         }
       })();
     </script>
@@ -57,7 +67,7 @@
         --max: 1200px;
       }
 
-      html[data-theme='dark'] {
+      html[data-theme="dark"] {
         color-scheme: dark;
         --bg: #0e0f12;
         --bg-soft: #13151a;
@@ -81,10 +91,18 @@
 
       body {
         margin: 0;
-        font-family: 'Instrument Sans', system-ui, sans-serif;
+        font-family: "Instrument Sans", system-ui, sans-serif;
         background:
-          radial-gradient(1200px 600px at 95% -10%, rgba(10, 132, 255, 0.08), transparent 48%),
-          radial-gradient(900px 500px at -5% 12%, rgba(0, 179, 164, 0.06), transparent 55%),
+          radial-gradient(
+            1200px 600px at 95% -10%,
+            rgba(10, 132, 255, 0.08),
+            transparent 48%
+          ),
+          radial-gradient(
+            900px 500px at -5% 12%,
+            rgba(0, 179, 164, 0.06),
+            transparent 55%
+          ),
           var(--bg);
         color: var(--text);
         line-height: 1.55;
@@ -121,7 +139,8 @@
         z-index: 12;
         backdrop-filter: blur(10px);
         background: color-mix(in srgb, var(--bg) 78%, transparent);
-        border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+        border-bottom: 1px solid
+          color-mix(in srgb, var(--line) 70%, transparent);
       }
 
       .topbar-inner {
@@ -133,7 +152,7 @@
       }
 
       .brand {
-        font-family: 'Manrope', sans-serif;
+        font-family: "Manrope", sans-serif;
         font-weight: 800;
         font-size: 2rem;
         line-height: 1;
@@ -212,7 +231,7 @@
       h2,
       h3 {
         margin: 0;
-        font-family: 'Manrope', sans-serif;
+        font-family: "Manrope", sans-serif;
         line-height: 1.16;
       }
 
@@ -385,7 +404,7 @@
       .step-index {
         position: relative;
         display: block;
-        font-family: 'Manrope', sans-serif;
+        font-family: "Manrope", sans-serif;
         font-weight: 800;
         font-size: clamp(4.8rem, 8.4vw, 6.8rem);
         line-height: 0.8;
@@ -421,21 +440,29 @@
         position: relative;
         overflow: hidden;
         border: 1px solid var(--line);
-        background: linear-gradient(130deg, color-mix(in srgb, var(--surface) 84%, transparent), color-mix(in srgb, var(--accent-soft) 42%, transparent));
+        background: linear-gradient(
+          130deg,
+          color-mix(in srgb, var(--surface) 84%, transparent),
+          color-mix(in srgb, var(--accent-soft) 42%, transparent)
+        );
         border-radius: var(--radius-lg);
         padding: clamp(1.15rem, 4vw, 2.25rem);
         box-shadow: var(--shadow);
       }
 
       .cta-wrap::before {
-        content: '';
+        content: "";
         position: absolute;
         width: min(48vw, 420px);
         height: min(48vw, 420px);
         right: -18%;
         top: -44%;
         border-radius: 999px;
-        background: radial-gradient(circle, color-mix(in srgb, var(--accent) 22%, transparent), transparent 68%);
+        background: radial-gradient(
+          circle,
+          color-mix(in srgb, var(--accent) 22%, transparent),
+          transparent 68%
+        );
         pointer-events: none;
       }
 
@@ -496,7 +523,8 @@
         border-radius: 0;
         box-shadow: none;
         background: transparent;
-        border-bottom: 1px solid color-mix(in srgb, var(--line) 65%, transparent);
+        border-bottom: 1px solid
+          color-mix(in srgb, var(--line) 65%, transparent);
       }
 
       .faq details:first-of-type {
@@ -517,14 +545,16 @@
       }
 
       .faq summary::before {
-        content: '';
+        content: "";
         flex: 0 0 auto;
         width: 0.58rem;
         height: 0.58rem;
         border-right: 1.8px solid var(--text-muted);
         border-bottom: 1.8px solid var(--text-muted);
         transform: rotate(45deg) translateY(-3px);
-        transition: transform 160ms ease, border-color 160ms ease;
+        transition:
+          transform 160ms ease,
+          border-color 160ms ease;
       }
 
       .faq details[open] summary::before {
@@ -693,7 +723,9 @@
 
     <header class="topbar" role="banner">
       <div class="container topbar-inner">
-        <a class="brand" href="#top" aria-label="Invoicy — go to homepage">Invo<span>icy</span></a>
+        <a class="brand" href="#top" aria-label="Invoicy — go to homepage"
+          >Invo<span>icy</span></a
+        >
         <nav aria-label="Page sections">
           <ul>
             <li><a href="#challenge">Your challenge</a></li>
@@ -709,11 +741,16 @@
       <section class="hero" id="top">
         <div class="container hero-grid">
           <div>
-            <span class="badge" aria-label="Product focus">Built for busy small business owners</span>
-            <h1>All your business invoices in one place. No manual inbox chasing.</h1>
+            <span class="badge" aria-label="Product focus"
+              >Built for busy small business owners</span
+            >
+            <h1>
+              All your business invoices in one place. No manual inbox chasing.
+            </h1>
             <p class="lead">
-              Invoicy helps you keep every invoice in one clear place, so nothing gets buried in email and
-              your accountant always has what they need.
+              Invoicy helps you keep every invoice in one clear place, so
+              nothing gets buried in email and your accountant always has what
+              they need.
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="/app">Get started</a>
@@ -721,26 +758,847 @@
             </div>
           </div>
 
-          <aside class="hero-visual" aria-label="Illustration of organized invoice flow">
+          <aside
+            class="hero-visual"
+            aria-label="Illustration of organized invoice flow"
+          >
             <figure class="hero-illustration">
-              <svg viewBox="0 0 560 380" role="img" aria-labelledby="hero-illu-title hero-illu-desc">
-                <title id="hero-illu-title">Invoice flow illustration</title>
+              <svg
+                viewBox="0 0 760 520"
+                role="img"
+                aria-labelledby="hero-illu-title hero-illu-desc"
+              >
+                <title id="hero-illu-title">
+                  Invoice capture and organization
+                </title>
                 <desc id="hero-illu-desc">
-                  Schematic view: invoices from email and Telegram move into one organized workspace.
+                  UI-like illustration: invoices arrive from several sources,
+                  are recognized in the service, and appear in one shared table.
                 </desc>
-                <rect x="44" y="62" width="150" height="92" rx="14" fill="var(--surface)" stroke="var(--line)" />
-                <rect x="366" y="62" width="150" height="92" rx="14" fill="var(--surface)" stroke="var(--line)" />
-                <rect x="163" y="220" width="234" height="112" rx="16" fill="var(--surface)" stroke="var(--line)" />
-                <text x="119" y="95" fill="var(--text)" font-size="16" text-anchor="middle" font-family="Manrope, sans-serif">Email</text>
-                <text x="119" y="118" fill="var(--text-muted)" font-size="12" text-anchor="middle" font-family="Instrument Sans, sans-serif">Invoice PDFs</text>
-                <text x="441" y="95" fill="var(--text)" font-size="16" text-anchor="middle" font-family="Manrope, sans-serif">Telegram</text>
-                <text x="441" y="118" fill="var(--text-muted)" font-size="12" text-anchor="middle" font-family="Instrument Sans, sans-serif">File uploads</text>
-                <text x="280" y="256" fill="var(--text)" font-size="16" text-anchor="middle" font-family="Manrope, sans-serif">One shared place</text>
-                <text x="280" y="278" fill="var(--text-muted)" font-size="12" text-anchor="middle" font-family="Instrument Sans, sans-serif">Clear records for owner and accountant</text>
-                <path d="M120 156 C120 190 190 200 226 220" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" />
-                <path d="M440 156 C440 190 370 200 334 220" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" />
-                <circle cx="227" cy="220" r="4" fill="var(--accent)" />
-                <circle cx="333" cy="220" r="4" fill="var(--accent)" />
+
+                <!-- Soft background glow -->
+                <defs>
+                  <radialGradient id="g1" cx="70%" cy="10%" r="70%">
+                    <stop
+                      offset="0%"
+                      stop-color="var(--accent)"
+                      stop-opacity="0.14"
+                    />
+                    <stop
+                      offset="55%"
+                      stop-color="var(--accent)"
+                      stop-opacity="0.05"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="transparent"
+                      stop-opacity="0"
+                    />
+                  </radialGradient>
+                  <radialGradient id="g2" cx="15%" cy="25%" r="70%">
+                    <stop
+                      offset="0%"
+                      stop-color="var(--accent-2)"
+                      stop-opacity="0.12"
+                    />
+                    <stop
+                      offset="60%"
+                      stop-color="var(--accent-2)"
+                      stop-opacity="0.04"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="transparent"
+                      stop-opacity="0"
+                    />
+                  </radialGradient>
+
+                  <filter
+                    id="softShadow"
+                    x="-20%"
+                    y="-20%"
+                    width="140%"
+                    height="140%"
+                  >
+                    <feDropShadow
+                      dx="0"
+                      dy="10"
+                      stdDeviation="14"
+                      flood-color="rgba(12,22,36,0.14)"
+                    />
+                  </filter>
+
+                  <filter
+                    id="glow"
+                    x="-40%"
+                    y="-40%"
+                    width="180%"
+                    height="180%"
+                  >
+                    <feGaussianBlur stdDeviation="3.2" result="b" />
+                    <feColorMatrix
+                      in="b"
+                      type="matrix"
+                      values="
+          1 0 0 0 0
+          0 1 0 0 0
+          0 0 1 0 0
+          0 0 0 0.55 0"
+                      result="c"
+                    />
+                    <feMerge>
+                      <feMergeNode in="c" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+
+                  <linearGradient id="ctaGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="var(--cta-start)" />
+                    <stop offset="100%" stop-color="var(--cta-end)" />
+                  </linearGradient>
+
+                  <linearGradient id="chipGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop
+                      offset="0%"
+                      stop-color="color-mix(in srgb, var(--surface) 92%, var(--accent-soft))"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="color-mix(in srgb, var(--surface) 88%, var(--accent-soft))"
+                    />
+                  </linearGradient>
+                </defs>
+
+                <rect
+                  x="0"
+                  y="0"
+                  width="760"
+                  height="520"
+                  rx="28"
+                  fill="transparent"
+                />
+                <rect
+                  x="0"
+                  y="0"
+                  width="760"
+                  height="520"
+                  rx="28"
+                  fill="url(#g1)"
+                />
+                <rect
+                  x="0"
+                  y="0"
+                  width="760"
+                  height="520"
+                  rx="28"
+                  fill="url(#g2)"
+                />
+
+                <!-- Outer frame (subtle) -->
+                <rect
+                  x="26"
+                  y="26"
+                  width="708"
+                  height="468"
+                  rx="24"
+                  fill="color-mix(in srgb, var(--surface) 84%, transparent)"
+                  stroke="color-mix(in srgb, var(--line) 70%, transparent)"
+                />
+
+                <!-- Left column: sources -->
+                <!-- Source card helper: icon + title + subtitle + small file chips -->
+                <g filter="url(#softShadow)">
+                  <!-- Email -->
+                  <rect
+                    x="60"
+                    y="78"
+                    width="210"
+                    height="112"
+                    rx="18"
+                    fill="var(--surface)"
+                    stroke="var(--line)"
+                  />
+                  <circle
+                    cx="88"
+                    cy="108"
+                    r="14"
+                    fill="color-mix(in srgb, var(--accent) 18%, var(--surface))"
+                    stroke="color-mix(in srgb, var(--accent) 32%, var(--line))"
+                  />
+                  <path
+                    d="M80 106 L88 112 L96 106"
+                    fill="none"
+                    stroke="var(--accent)"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <text
+                    x="112"
+                    y="110"
+                    fill="var(--text)"
+                    font-size="14"
+                    font-weight="700"
+                    font-family="Manrope, sans-serif"
+                  >
+                    Email
+                  </text>
+                  <text
+                    x="112"
+                    y="130"
+                    fill="var(--text-muted)"
+                    font-size="12"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    PDF invoices
+                  </text>
+
+                  <rect
+                    x="78"
+                    y="148"
+                    width="70"
+                    height="22"
+                    rx="11"
+                    fill="var(--accent-soft)"
+                    stroke="color-mix(in srgb, var(--line) 70%, transparent)"
+                  />
+                  <text
+                    x="113"
+                    y="163"
+                    fill="var(--text-muted)"
+                    font-size="11"
+                    text-anchor="middle"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    INV_24
+                  </text>
+                  <rect
+                    x="154"
+                    y="148"
+                    width="84"
+                    height="22"
+                    rx="11"
+                    fill="var(--accent-soft)"
+                    stroke="color-mix(in srgb, var(--line) 70%, transparent)"
+                  />
+                  <text
+                    x="196"
+                    y="163"
+                    fill="var(--text-muted)"
+                    font-size="11"
+                    text-anchor="middle"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    Supplier
+                  </text>
+
+                  <!-- Telegram -->
+                  <rect
+                    x="60"
+                    y="214"
+                    width="210"
+                    height="112"
+                    rx="18"
+                    fill="var(--surface)"
+                    stroke="var(--line)"
+                  />
+                  <circle
+                    cx="88"
+                    cy="244"
+                    r="14"
+                    fill="color-mix(in srgb, var(--accent) 18%, var(--surface))"
+                    stroke="color-mix(in srgb, var(--accent) 32%, var(--line))"
+                  />
+                  <path
+                    d="M82 246 L96 238 L90 252 L88 248 L82 246 Z"
+                    fill="var(--accent)"
+                    opacity="0.9"
+                  />
+                  <text
+                    x="112"
+                    y="246"
+                    fill="var(--text)"
+                    font-size="14"
+                    font-weight="700"
+                    font-family="Manrope, sans-serif"
+                  >
+                    Telegram
+                  </text>
+                  <text
+                    x="112"
+                    y="266"
+                    fill="var(--text-muted)"
+                    font-size="12"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    File uploads
+                  </text>
+
+                  <rect
+                    x="78"
+                    y="284"
+                    width="88"
+                    height="22"
+                    rx="11"
+                    fill="var(--accent-soft)"
+                    stroke="color-mix(in srgb, var(--line) 70%, transparent)"
+                  />
+                  <text
+                    x="122"
+                    y="299"
+                    fill="var(--text-muted)"
+                    font-size="11"
+                    text-anchor="middle"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    Invoice
+                  </text>
+                  <rect
+                    x="172"
+                    y="284"
+                    width="66"
+                    height="22"
+                    rx="11"
+                    fill="var(--accent-soft)"
+                    stroke="color-mix(in srgb, var(--line) 70%, transparent)"
+                  />
+                  <text
+                    x="205"
+                    y="299"
+                    fill="var(--text-muted)"
+                    font-size="11"
+                    text-anchor="middle"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    PDF
+                  </text>
+
+                  <!-- Drive -->
+                  <rect
+                    x="60"
+                    y="350"
+                    width="210"
+                    height="112"
+                    rx="18"
+                    fill="var(--surface)"
+                    stroke="var(--line)"
+                  />
+                  <circle
+                    cx="88"
+                    cy="380"
+                    r="14"
+                    fill="color-mix(in srgb, var(--accent-2) 16%, var(--surface))"
+                    stroke="color-mix(in srgb, var(--accent-2) 34%, var(--line))"
+                  />
+                  <path
+                    d="M83 386 L88 374 L93 386 Z"
+                    fill="none"
+                    stroke="var(--accent-2)"
+                    stroke-width="2.2"
+                    stroke-linejoin="round"
+                  />
+                  <text
+                    x="112"
+                    y="382"
+                    fill="var(--text)"
+                    font-size="14"
+                    font-weight="700"
+                    font-family="Manrope, sans-serif"
+                  >
+                    Cloud drive
+                  </text>
+                  <text
+                    x="112"
+                    y="402"
+                    fill="var(--text-muted)"
+                    font-size="12"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    Shared folder
+                  </text>
+
+                  <rect
+                    x="78"
+                    y="420"
+                    width="86"
+                    height="22"
+                    rx="11"
+                    fill="color-mix(in srgb, var(--accent-2) 10%, var(--surface))"
+                    stroke="color-mix(in srgb, var(--line) 70%, transparent)"
+                  />
+                  <text
+                    x="121"
+                    y="435"
+                    fill="var(--text-muted)"
+                    font-size="11"
+                    text-anchor="middle"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    Monthly
+                  </text>
+                  <rect
+                    x="170"
+                    y="420"
+                    width="68"
+                    height="22"
+                    rx="11"
+                    fill="color-mix(in srgb, var(--accent-2) 10%, var(--surface))"
+                    stroke="color-mix(in srgb, var(--line) 70%, transparent)"
+                  />
+                  <text
+                    x="204"
+                    y="435"
+                    fill="var(--text-muted)"
+                    font-size="11"
+                    text-anchor="middle"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    Sync
+                  </text>
+                </g>
+
+                <!-- Center: processing -->
+                <g filter="url(#softShadow)">
+                  <rect
+                    x="308"
+                    y="128"
+                    width="392"
+                    height="210"
+                    rx="26"
+                    fill="url(#chipGrad)"
+                    stroke="var(--line)"
+                  />
+                  <!-- Header -->
+                  <text
+                    x="338"
+                    y="164"
+                    fill="var(--text)"
+                    font-size="16"
+                    font-weight="800"
+                    font-family="Manrope, sans-serif"
+                  >
+                    Invo
+                  </text>
+                  <text
+                    x="375"
+                    y="164"
+                    fill="var(--accent)"
+                    font-size="16"
+                    font-weight="800"
+                    font-family="Manrope, sans-serif"
+                  >
+                    icy
+                  </text>
+                  <rect
+                    x="338"
+                    y="176"
+                    width="104"
+                    height="22"
+                    rx="11"
+                    fill="var(--surface)"
+                    stroke="color-mix(in srgb, var(--line) 70%, transparent)"
+                  />
+                  <text
+                    x="390"
+                    y="191"
+                    fill="var(--text-muted)"
+                    font-size="11"
+                    text-anchor="middle"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    Auto-recognize
+                  </text>
+
+                  <!-- Scan widget -->
+                  <rect
+                    x="338"
+                    y="212"
+                    width="332"
+                    height="96"
+                    rx="18"
+                    fill="var(--surface)"
+                    stroke="var(--line)"
+                  />
+                  <!-- Left: document icon -->
+                  <rect
+                    x="358"
+                    y="232"
+                    width="64"
+                    height="56"
+                    rx="12"
+                    fill="color-mix(in srgb, var(--accent-soft) 55%, var(--surface))"
+                    stroke="color-mix(in srgb, var(--line) 70%, transparent)"
+                  />
+                  <path
+                    d="M376 244 h28"
+                    stroke="var(--text-muted)"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M376 256 h22"
+                    stroke="var(--text-muted)"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M376 268 h26"
+                    stroke="var(--text-muted)"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                  />
+
+                  <!-- Right: extracted fields -->
+                  <text
+                    x="440"
+                    y="244"
+                    fill="var(--text)"
+                    font-size="13"
+                    font-weight="700"
+                    font-family="Manrope, sans-serif"
+                  >
+                    Recognized fields
+                  </text>
+
+                  <rect
+                    x="440"
+                    y="256"
+                    width="98"
+                    height="20"
+                    rx="10"
+                    fill="var(--accent-soft)"
+                    stroke="color-mix(in srgb, var(--line) 70%, transparent)"
+                  />
+                  <text
+                    x="489"
+                    y="270"
+                    fill="var(--text-muted)"
+                    font-size="11"
+                    text-anchor="middle"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    Supplier
+                  </text>
+
+                  <rect
+                    x="544"
+                    y="256"
+                    width="92"
+                    height="20"
+                    rx="10"
+                    fill="var(--accent-soft)"
+                    stroke="color-mix(in srgb, var(--line) 70%, transparent)"
+                  />
+                  <text
+                    x="590"
+                    y="270"
+                    fill="var(--text-muted)"
+                    font-size="11"
+                    text-anchor="middle"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    Date
+                  </text>
+
+                  <rect
+                    x="440"
+                    y="280"
+                    width="104"
+                    height="20"
+                    rx="10"
+                    fill="var(--accent-soft)"
+                    stroke="color-mix(in srgb, var(--line) 70%, transparent)"
+                  />
+                  <text
+                    x="492"
+                    y="294"
+                    fill="var(--text-muted)"
+                    font-size="11"
+                    text-anchor="middle"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    Amount
+                  </text>
+
+                  <rect
+                    x="550"
+                    y="280"
+                    width="86"
+                    height="20"
+                    rx="10"
+                    fill="var(--accent-soft)"
+                    stroke="color-mix(in srgb, var(--line) 70%, transparent)"
+                  />
+                  <text
+                    x="593"
+                    y="294"
+                    fill="var(--text-muted)"
+                    font-size="11"
+                    text-anchor="middle"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    VAT
+                  </text>
+
+                  <!-- Scan line -->
+                  <rect
+                    x="358"
+                    y="229"
+                    width="312"
+                    height="3"
+                    rx="2"
+                    fill="var(--accent)"
+                    opacity="0.65"
+                    filter="url(#glow)"
+                  />
+                  <rect
+                    x="358"
+                    y="306"
+                    width="312"
+                    height="3"
+                    rx="2"
+                    fill="var(--accent-2)"
+                    opacity="0.45"
+                    filter="url(#glow)"
+                  />
+
+                  <!-- Small status pill -->
+                  <rect
+                    x="568"
+                    y="176"
+                    width="102"
+                    height="22"
+                    rx="11"
+                    fill="url(#ctaGrad)"
+                    opacity="0.95"
+                  />
+                  <text
+                    x="619"
+                    y="191"
+                    fill="#fff"
+                    font-size="11"
+                    text-anchor="middle"
+                    font-weight="700"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    Saved
+                  </text>
+                </g>
+
+                <!-- Bottom-right: shared table -->
+                <g filter="url(#softShadow)">
+                  <rect
+                    x="308"
+                    y="356"
+                    width="392"
+                    height="118"
+                    rx="22"
+                    fill="var(--surface)"
+                    stroke="var(--line)"
+                  />
+                  <text
+                    x="338"
+                    y="388"
+                    fill="var(--text)"
+                    font-size="14"
+                    font-weight="800"
+                    font-family="Manrope, sans-serif"
+                  >
+                    One shared table
+                  </text>
+                  <text
+                    x="338"
+                    y="408"
+                    fill="var(--text-muted)"
+                    font-size="12"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    Ready for you and your accountant
+                  </text>
+
+                  <!-- Table header -->
+                  <rect
+                    x="338"
+                    y="422"
+                    width="332"
+                    height="18"
+                    rx="9"
+                    fill="color-mix(in srgb, var(--bg-soft) 80%, var(--surface))"
+                    stroke="color-mix(in srgb, var(--line) 65%, transparent)"
+                  />
+                  <text
+                    x="356"
+                    y="435"
+                    fill="var(--text-muted)"
+                    font-size="10"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    Supplier
+                  </text>
+                  <text
+                    x="520"
+                    y="435"
+                    fill="var(--text-muted)"
+                    font-size="10"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    Date
+                  </text>
+                  <text
+                    x="610"
+                    y="435"
+                    fill="var(--text-muted)"
+                    font-size="10"
+                    font-family="Instrument Sans, sans-serif"
+                  >
+                    Amount
+                  </text>
+
+                  <!-- Rows -->
+                  <g opacity="0.95">
+                    <rect
+                      x="338"
+                      y="444"
+                      width="332"
+                      height="18"
+                      rx="9"
+                      fill="transparent"
+                    />
+                    <path
+                      d="M338 462 H670"
+                      stroke="color-mix(in srgb, var(--line) 60%, transparent)"
+                    />
+                    <text
+                      x="356"
+                      y="457"
+                      fill="var(--text)"
+                      font-size="10.5"
+                      font-family="Instrument Sans, sans-serif"
+                    >
+                      Nord Supplies
+                    </text>
+                    <text
+                      x="520"
+                      y="457"
+                      fill="var(--text-muted)"
+                      font-size="10.5"
+                      font-family="Instrument Sans, sans-serif"
+                    >
+                      Jan 12
+                    </text>
+                    <text
+                      x="610"
+                      y="457"
+                      fill="var(--text)"
+                      font-size="10.5"
+                      font-family="Instrument Sans, sans-serif"
+                    >
+                      € 214
+                    </text>
+
+                    <text
+                      x="356"
+                      y="476"
+                      fill="var(--text)"
+                      font-size="10.5"
+                      font-family="Instrument Sans, sans-serif"
+                    >
+                      Bright Studio
+                    </text>
+                    <text
+                      x="520"
+                      y="476"
+                      fill="var(--text-muted)"
+                      font-size="10.5"
+                      font-family="Instrument Sans, sans-serif"
+                    >
+                      Jan 24
+                    </text>
+                    <text
+                      x="610"
+                      y="476"
+                      fill="var(--text)"
+                      font-size="10.5"
+                      font-family="Instrument Sans, sans-serif"
+                    >
+                      € 980
+                    </text>
+                  </g>
+                </g>
+
+                <!-- Flow lines (soft, decorative) -->
+                <g
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-width="3"
+                  filter="url(#glow)"
+                >
+                  <path
+                    d="M270 134 C318 132 300 160 324 176"
+                    stroke="var(--accent)"
+                    opacity="0.8"
+                  />
+                  <path
+                    d="M270 270 C314 270 304 236 324 226"
+                    stroke="var(--accent)"
+                    opacity="0.75"
+                  />
+                  <path
+                    d="M270 406 C318 398 312 346 328 314"
+                    stroke="var(--accent-2)"
+                    opacity="0.6"
+                  />
+                </g>
+
+                <!-- Anchor dots -->
+                <g>
+                  <circle cx="270" cy="134" r="4.5" fill="var(--accent)" />
+                  <circle cx="324" cy="176" r="4.5" fill="var(--accent)" />
+                  <circle cx="270" cy="270" r="4.5" fill="var(--accent)" />
+                  <circle cx="324" cy="226" r="4.5" fill="var(--accent)" />
+                  <circle cx="270" cy="406" r="4.5" fill="var(--accent-2)" />
+                  <circle cx="328" cy="314" r="4.5" fill="var(--accent-2)" />
+                </g>
+
+                <!-- Tiny "file" particles -->
+                <g opacity="0.85">
+                  <rect
+                    x="250"
+                    y="164"
+                    width="18"
+                    height="14"
+                    rx="4"
+                    fill="var(--surface)"
+                    stroke="color-mix(in srgb, var(--line) 70%, transparent)"
+                  />
+                  <rect
+                    x="254"
+                    y="168"
+                    width="10"
+                    height="2"
+                    rx="1"
+                    fill="var(--text-muted)"
+                    opacity="0.6"
+                  />
+                  <rect
+                    x="246"
+                    y="294"
+                    width="20"
+                    height="16"
+                    rx="4"
+                    fill="var(--surface)"
+                    stroke="color-mix(in srgb, var(--line) 70%, transparent)"
+                  />
+                  <rect
+                    x="250"
+                    y="298"
+                    width="12"
+                    height="2"
+                    rx="1"
+                    fill="var(--text-muted)"
+                    opacity="0.6"
+                  />
+                </g>
               </svg>
             </figure>
           </aside>
@@ -752,44 +1610,137 @@
           <div class="section-head">
             <h2 id="pain-title">Why invoices still take too much effort</h2>
             <p>
-              You are already focused on sales, team, and growth. When invoices come from everywhere,
-              it is easy to lose track and hard to keep accounting clean without extra effort.
+              You are already focused on sales, team, and growth. When invoices
+              come from everywhere, it is easy to lose track and hard to keep
+              accounting clean without extra effort.
             </p>
           </div>
           <div class="grid-3">
             <article class="panel">
-              <svg class="panel-visual" viewBox="0 0 320 140" aria-hidden="true">
-                <rect x="10" y="16" width="120" height="88" rx="12" fill="var(--surface)" stroke="var(--line)" />
-                <rect x="190" y="36" width="120" height="88" rx="12" fill="var(--surface)" stroke="var(--line)" />
-                <path d="M124 60 C154 40 168 42 196 72" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" />
+              <svg
+                class="panel-visual"
+                viewBox="0 0 320 140"
+                aria-hidden="true"
+              >
+                <rect
+                  x="10"
+                  y="16"
+                  width="120"
+                  height="88"
+                  rx="12"
+                  fill="var(--surface)"
+                  stroke="var(--line)"
+                />
+                <rect
+                  x="190"
+                  y="36"
+                  width="120"
+                  height="88"
+                  rx="12"
+                  fill="var(--surface)"
+                  stroke="var(--line)"
+                />
+                <path
+                  d="M124 60 C154 40 168 42 196 72"
+                  fill="none"
+                  stroke="var(--accent)"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
                 <circle cx="123" cy="60" r="5" fill="var(--accent)" />
                 <circle cx="196" cy="72" r="5" fill="var(--accent)" />
               </svg>
               <h3>Scattered inboxes</h3>
-              <p>Invoices arrive from tools, suppliers, and contractors across different channels.</p>
+              <p>
+                Invoices arrive from tools, suppliers, and contractors across
+                different channels.
+              </p>
             </article>
             <article class="panel">
-              <svg class="panel-visual" viewBox="0 0 320 140" aria-hidden="true">
-                <rect x="18" y="26" width="66" height="88" rx="10" fill="var(--surface)" stroke="var(--line)" />
-                <rect x="98" y="18" width="66" height="96" rx="10" fill="var(--surface)" stroke="var(--line)" />
-                <rect x="178" y="36" width="66" height="78" rx="10" fill="var(--surface)" stroke="var(--line)" />
-                <rect x="258" y="48" width="50" height="66" rx="10" fill="var(--surface)" stroke="var(--line)" />
+              <svg
+                class="panel-visual"
+                viewBox="0 0 320 140"
+                aria-hidden="true"
+              >
+                <rect
+                  x="18"
+                  y="26"
+                  width="66"
+                  height="88"
+                  rx="10"
+                  fill="var(--surface)"
+                  stroke="var(--line)"
+                />
+                <rect
+                  x="98"
+                  y="18"
+                  width="66"
+                  height="96"
+                  rx="10"
+                  fill="var(--surface)"
+                  stroke="var(--line)"
+                />
+                <rect
+                  x="178"
+                  y="36"
+                  width="66"
+                  height="78"
+                  rx="10"
+                  fill="var(--surface)"
+                  stroke="var(--line)"
+                />
+                <rect
+                  x="258"
+                  y="48"
+                  width="50"
+                  height="66"
+                  rx="10"
+                  fill="var(--surface)"
+                  stroke="var(--line)"
+                />
                 <path d="M24 116 H305" stroke="var(--line)" />
-                <path d="M38 72 H64 M118 72 H144 M198 72 H224 M270 72 H294" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" />
+                <path
+                  d="M38 72 H64 M118 72 H144 M198 72 H224 M270 72 H294"
+                  stroke="var(--accent)"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                />
               </svg>
               <h3>Too many small tasks</h3>
-              <p>Downloading, forwarding, and clarifying each invoice takes time away from real priorities.</p>
+              <p>
+                Downloading, forwarding, and clarifying each invoice takes time
+                away from real priorities.
+              </p>
             </article>
             <article class="panel">
-              <svg class="panel-visual" viewBox="0 0 320 140" aria-hidden="true">
-                <path d="M24 112 Q86 20 146 70 T296 54" fill="none" stroke="var(--line)" stroke-width="8" stroke-linecap="round" />
-                <path d="M24 112 Q86 20 146 70 T296 54" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" />
+              <svg
+                class="panel-visual"
+                viewBox="0 0 320 140"
+                aria-hidden="true"
+              >
+                <path
+                  d="M24 112 Q86 20 146 70 T296 54"
+                  fill="none"
+                  stroke="var(--line)"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M24 112 Q86 20 146 70 T296 54"
+                  fill="none"
+                  stroke="var(--accent)"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
                 <circle cx="24" cy="112" r="7" fill="var(--accent)" />
                 <circle cx="146" cy="70" r="7" fill="var(--accent)" />
                 <circle cx="296" cy="54" r="7" fill="var(--accent)" />
               </svg>
               <h3>Unnecessary stress</h3>
-              <p>Missing or late documents create avoidable pressure for both you and your accountant.</p>
+              <p>
+                Missing or late documents create avoidable pressure for both you
+                and your accountant.
+              </p>
             </article>
           </div>
         </div>
@@ -800,30 +1751,43 @@
           <div class="section-head">
             <h2 id="how-title">How Invoicy helps in practice</h2>
             <p>
-              Invoicy turns scattered invoice files into a simple shared view, so your accounting flow stays
-              organized without constant manual follow-up.
+              Invoicy turns scattered invoice files into a simple shared view,
+              so your accounting flow stays organized without constant manual
+              follow-up.
             </p>
           </div>
           <div class="workflow" role="list" aria-label="Invoice flow">
             <article class="step" role="listitem">
               <span class="step-index" aria-hidden="true">1</span>
               <h3>Invoices come in</h3>
-              <p>Invoice files arrive the way you already work, by email or in Telegram.</p>
+              <p>
+                Invoice files arrive the way you already work, by email or in
+                Telegram.
+              </p>
             </article>
             <article class="step" role="listitem">
               <span class="step-index" aria-hidden="true">2</span>
               <h3>Relevant docs are identified</h3>
-              <p>Invoicy picks up real invoices and ignores files that do not belong in accounting.</p>
+              <p>
+                Invoicy picks up real invoices and ignores files that do not
+                belong in accounting.
+              </p>
             </article>
             <article class="step" role="listitem">
               <span class="step-index" aria-hidden="true">3</span>
               <h3>Useful details are captured</h3>
-              <p>Key invoice information is prepared in a consistent format for your records.</p>
+              <p>
+                Key invoice information is prepared in a consistent format for
+                your records.
+              </p>
             </article>
             <article class="step" role="listitem">
               <span class="step-index" aria-hidden="true">4</span>
               <h3>Everything appears in one table</h3>
-              <p>You and your accountant can quickly review expenses with source files in one place.</p>
+              <p>
+                You and your accountant can quickly review expenses with source
+                files in one place.
+              </p>
             </article>
           </div>
         </div>
@@ -833,20 +1797,32 @@
         <div class="container">
           <div class="section-head">
             <h2 id="features-title">Benefits</h2>
-            <p>Three practical outcomes you feel in day-to-day work, not just in reports.</p>
+            <p>
+              Three practical outcomes you feel in day-to-day work, not just in
+              reports.
+            </p>
           </div>
           <div class="grid-3">
             <article class="feature">
               <h3>One convenient place for invoices</h3>
-              <p>All invoice records stay in one clear workspace, so you always know where to look.</p>
+              <p>
+                All invoice records stay in one clear workspace, so you always
+                know where to look.
+              </p>
             </article>
             <article class="feature">
               <h3>Less routine, more focus</h3>
-              <p>You spend less time on repetitive forwarding and more time on running the business.</p>
+              <p>
+                You spend less time on repetitive forwarding and more time on
+                running the business.
+              </p>
             </article>
             <article class="feature">
               <h3>Smoother work with your accountant</h3>
-              <p>Your accountant gets organized, up-to-date records faster, with less back-and-forth.</p>
+              <p>
+                Your accountant gets organized, up-to-date records faster, with
+                less back-and-forth.
+              </p>
             </article>
           </div>
         </div>
@@ -858,28 +1834,128 @@
             <div class="cta-main">
               <h2 id="start-title">Start using Invoicy</h2>
               <p class="cta-copy">
-                Move from scattered invoice files to a clean, reliable workflow your accountant can trust.
+                Move from scattered invoice files to a clean, reliable workflow
+                your accountant can trust.
               </p>
               <div class="cta-actions">
                 <a class="button button-primary" href="/app">Get started</a>
               </div>
             </div>
-            <figure class="cta-visual" aria-label="Invoicy workspace illustration">
-              <svg viewBox="0 0 520 330" role="img" aria-labelledby="cta-illu-title cta-illu-desc">
+            <figure
+              class="cta-visual"
+              aria-label="Invoicy workspace illustration"
+            >
+              <svg
+                viewBox="0 0 520 330"
+                role="img"
+                aria-labelledby="cta-illu-title cta-illu-desc"
+              >
                 <title id="cta-illu-title">Invoicy start illustration</title>
-                <desc id="cta-illu-desc">Illustration of invoice records moving into one organized workspace.</desc>
-                <rect x="24" y="24" width="472" height="282" rx="18" fill="color-mix(in srgb, var(--surface) 88%, transparent)" stroke="var(--line)" />
-                <rect x="56" y="60" width="138" height="80" rx="12" fill="var(--surface)" stroke="var(--line)" />
-                <rect x="326" y="60" width="138" height="80" rx="12" fill="var(--surface)" stroke="var(--line)" />
-                <rect x="150" y="184" width="220" height="94" rx="14" fill="var(--surface)" stroke="var(--line)" />
-                <path d="M190 138 C212 165 240 172 256 184" fill="none" stroke="var(--accent)" stroke-width="2.3" stroke-linecap="round" />
-                <path d="M332 138 C310 165 282 172 266 184" fill="none" stroke="var(--accent)" stroke-width="2.3" stroke-linecap="round" />
+                <desc id="cta-illu-desc">
+                  Illustration of invoice records moving into one organized
+                  workspace.
+                </desc>
+                <rect
+                  x="24"
+                  y="24"
+                  width="472"
+                  height="282"
+                  rx="18"
+                  fill="color-mix(in srgb, var(--surface) 88%, transparent)"
+                  stroke="var(--line)"
+                />
+                <rect
+                  x="56"
+                  y="60"
+                  width="138"
+                  height="80"
+                  rx="12"
+                  fill="var(--surface)"
+                  stroke="var(--line)"
+                />
+                <rect
+                  x="326"
+                  y="60"
+                  width="138"
+                  height="80"
+                  rx="12"
+                  fill="var(--surface)"
+                  stroke="var(--line)"
+                />
+                <rect
+                  x="150"
+                  y="184"
+                  width="220"
+                  height="94"
+                  rx="14"
+                  fill="var(--surface)"
+                  stroke="var(--line)"
+                />
+                <path
+                  d="M190 138 C212 165 240 172 256 184"
+                  fill="none"
+                  stroke="var(--accent)"
+                  stroke-width="2.3"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M332 138 C310 165 282 172 266 184"
+                  fill="none"
+                  stroke="var(--accent)"
+                  stroke-width="2.3"
+                  stroke-linecap="round"
+                />
                 <circle cx="256" cy="183" r="4" fill="var(--accent)" />
-                <text x="125" y="93" fill="var(--text)" font-size="14" text-anchor="middle" font-family="Manrope, sans-serif">Incoming files</text>
-                <text x="125" y="114" fill="var(--text-muted)" font-size="11" text-anchor="middle" font-family="Instrument Sans, sans-serif">email and uploads</text>
-                <text x="395" y="93" fill="var(--text)" font-size="14" text-anchor="middle" font-family="Manrope, sans-serif">Organized records</text>
-                <text x="395" y="114" fill="var(--text-muted)" font-size="11" text-anchor="middle" font-family="Instrument Sans, sans-serif">ready for accounting</text>
-                <text x="260" y="220" fill="var(--text)" font-size="15" text-anchor="middle" font-family="Manrope, sans-serif">Start working in one place</text>
+                <text
+                  x="125"
+                  y="93"
+                  fill="var(--text)"
+                  font-size="14"
+                  text-anchor="middle"
+                  font-family="Manrope, sans-serif"
+                >
+                  Incoming files
+                </text>
+                <text
+                  x="125"
+                  y="114"
+                  fill="var(--text-muted)"
+                  font-size="11"
+                  text-anchor="middle"
+                  font-family="Instrument Sans, sans-serif"
+                >
+                  email and uploads
+                </text>
+                <text
+                  x="395"
+                  y="93"
+                  fill="var(--text)"
+                  font-size="14"
+                  text-anchor="middle"
+                  font-family="Manrope, sans-serif"
+                >
+                  Organized records
+                </text>
+                <text
+                  x="395"
+                  y="114"
+                  fill="var(--text-muted)"
+                  font-size="11"
+                  text-anchor="middle"
+                  font-family="Instrument Sans, sans-serif"
+                >
+                  ready for accounting
+                </text>
+                <text
+                  x="260"
+                  y="220"
+                  fill="var(--text)"
+                  font-size="15"
+                  text-anchor="middle"
+                  font-family="Manrope, sans-serif"
+                >
+                  Start working in one place
+                </text>
               </svg>
             </figure>
           </div>
@@ -894,15 +1970,24 @@
           <div class="faq">
             <details>
               <summary>Who is Invoicy best for?</summary>
-              <p>Owners of micro and small businesses who want cleaner accounting without building an internal finance team.</p>
+              <p>
+                Owners of micro and small businesses who want cleaner accounting
+                without building an internal finance team.
+              </p>
             </details>
             <details>
               <summary>Will this add more work for my team?</summary>
-              <p>No. Invoicy is designed to fit into everyday routines so people can keep working as usual.</p>
+              <p>
+                No. Invoicy is designed to fit into everyday routines so people
+                can keep working as usual.
+              </p>
             </details>
             <details>
               <summary>Is it relevant for businesses in Europe?</summary>
-              <p>Yes. Invoicy is built with European small businesses and their common invoice needs in mind.</p>
+              <p>
+                Yes. Invoicy is built with European small businesses and their
+                common invoice needs in mind.
+              </p>
             </details>
           </div>
         </div>
@@ -911,26 +1996,34 @@
 
     <footer>
       <div class="container">
-        <p>© <span id="year"></span> Invoicy. A simpler way to keep business invoices under control.</p>
+        <p>
+          © <span id="year"></span> Invoicy. A simpler way to keep business
+          invoices under control.
+        </p>
       </div>
     </footer>
 
     <script>
       (function () {
         var root = document.documentElement;
-        var mql = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+        var mql = window.matchMedia
+          ? window.matchMedia("(prefers-color-scheme: dark)")
+          : null;
         if (mql) {
           var syncTheme = function (event) {
-            var isDark = event && typeof event.matches === 'boolean' ? event.matches : mql.matches;
-            if (isDark) root.setAttribute('data-theme', 'dark');
-            else root.removeAttribute('data-theme');
+            var isDark =
+              event && typeof event.matches === "boolean"
+                ? event.matches
+                : mql.matches;
+            if (isDark) root.setAttribute("data-theme", "dark");
+            else root.removeAttribute("data-theme");
           };
           syncTheme();
-          if (mql.addEventListener) mql.addEventListener('change', syncTheme);
+          if (mql.addEventListener) mql.addEventListener("change", syncTheme);
           else if (mql.addListener) mql.addListener(syncTheme);
         }
 
-        var year = document.getElementById('year');
+        var year = document.getElementById("year");
         if (year) year.textContent = String(new Date().getFullYear());
       })();
     </script>
