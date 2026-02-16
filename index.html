@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Invora — all your invoices in one table</title>
+    <title>Invoicy — all your invoices in one table</title>
     <meta
       name="description"
-      content="Invora helps small business owners keep invoices organized in one shared table, so accounting stays simple and stress-free."
+      content="Invoicy helps small business owners keep invoices organized in one shared table, so accounting stays simple and stress-free."
     />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0e0f12" media="(prefers-color-scheme: dark)" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Invora — invoices in one table" />
+    <meta property="og:title" content="Invoicy — invoices in one table" />
     <meta
       property="og:description"
       content="Keep business invoices in one shared place and make accounting easier for you and your accountant."
@@ -167,9 +167,23 @@
         font-size: 0.95rem;
       }
 
+      nav a.nav-cta {
+        margin-left: 0.45rem;
+        border-radius: 10px;
+        padding: 0.55rem 0.9rem;
+        color: #ffffff;
+        background: linear-gradient(98deg, var(--cta-start), var(--cta-end));
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
       nav a:hover,
       nav a:focus-visible {
         color: var(--text);
+      }
+
+      nav a.nav-cta:hover,
+      nav a.nav-cta:focus-visible {
+        color: #ffffff;
       }
 
       .hero {
@@ -358,21 +372,6 @@
         padding: 1.2rem 0 0.4rem;
       }
 
-      .workflow-track {
-        position: absolute;
-        left: 4%;
-        right: 4%;
-        top: calc(var(--flow-axis) - 1px);
-        height: 2px;
-        background: linear-gradient(
-          90deg,
-          color-mix(in srgb, var(--line) 70%, transparent),
-          color-mix(in srgb, var(--accent) 28%, var(--line) 72%),
-          color-mix(in srgb, var(--line) 70%, transparent)
-        );
-        pointer-events: none;
-      }
-
       .step {
         position: relative;
         border: 0;
@@ -381,19 +380,6 @@
         padding: 0.35rem 0.35rem 0.4rem;
         min-height: 180px;
         overflow: visible;
-      }
-
-      .step::before {
-        content: '';
-        position: absolute;
-        top: calc(var(--flow-axis) - 0.3rem);
-        left: 0.35rem;
-        width: 0.6rem;
-        height: 0.6rem;
-        border-radius: 999px;
-        background: var(--accent);
-        box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent);
-        z-index: 2;
       }
 
       .step-index {
@@ -413,7 +399,7 @@
       .step h3 {
         position: relative;
         z-index: 2;
-        margin-top: 0.35rem;
+        margin-top: 0.7rem;
         font-size: 1.02rem;
         max-width: 24ch;
       }
@@ -432,50 +418,44 @@
       }
 
       .cta-wrap {
+        position: relative;
+        overflow: hidden;
         border: 1px solid var(--line);
         background: linear-gradient(130deg, color-mix(in srgb, var(--surface) 84%, transparent), color-mix(in srgb, var(--accent-soft) 42%, transparent));
         border-radius: var(--radius-lg);
-        padding: clamp(1rem, 4vw, 2rem);
+        padding: clamp(1.15rem, 4vw, 2.25rem);
         box-shadow: var(--shadow);
       }
 
-      form {
+      .cta-wrap::before {
+        content: '';
+        position: absolute;
+        width: min(48vw, 420px);
+        height: min(48vw, 420px);
+        right: -18%;
+        top: -44%;
+        border-radius: 999px;
+        background: radial-gradient(circle, color-mix(in srgb, var(--accent) 22%, transparent), transparent 68%);
+        pointer-events: none;
+      }
+
+      .cta-shell {
+        position: relative;
+        z-index: 1;
         display: grid;
-        gap: 0.8rem;
-        margin-top: 1rem;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 1.2rem;
+        align-items: center;
       }
 
-      .form-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.8rem;
+      .cta-main h2 {
+        margin-top: 0;
       }
 
-      label {
-        font-size: 0.9rem;
-        font-weight: 600;
-      }
-
-      input:not([type='checkbox']),
-      select {
-        width: 100%;
-        margin-top: 0.35rem;
-        border: 1px solid var(--line);
-        border-radius: 10px;
-        background: var(--surface);
-        color: var(--text);
-        padding: 0.7rem;
-        min-height: 2.9rem;
-      }
-
-      select {
-        -webkit-appearance: none;
-        appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8' fill='none'%3E%3Cpath d='M1 1.2L5 5.2L9 1.2' stroke='%237a8391' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-        background-position: calc(100% - 0.95rem) 50%;
-        background-size: 0.87rem 0.69rem;
-        background-repeat: no-repeat;
-        padding-right: 2.3rem;
+      .cta-copy {
+        margin-top: 0.75rem;
+        color: var(--text-muted);
+        max-width: 48ch;
       }
 
       input:focus-visible,
@@ -488,47 +468,21 @@
         outline-offset: 2px;
       }
 
-      .checkbox {
+      .cta-actions {
         display: flex;
-        gap: 0.5rem;
-        align-items: flex-start;
-        color: var(--text-muted);
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
       }
 
-      .checkbox input {
-        width: auto;
-        margin-top: 0.2rem;
+      .cta-visual {
+        margin: 0;
       }
 
-      input[aria-invalid='true'],
-      select[aria-invalid='true'] {
-        border-color: #d64545;
-      }
-
-      .field-error {
-        margin: 0.35rem 0 0;
-        color: #c63939;
-        font-size: 0.82rem;
-        line-height: 1.25;
-        min-height: 1.05rem;
-      }
-
-      .form-note {
-        color: var(--text-muted);
-        font-size: 0.87rem;
-      }
-
-      .form-status {
-        margin: 0.1rem 0 0;
-        font-size: 0.88rem;
-      }
-
-      .form-status[data-state='success'] {
-        color: #1f8a54;
-      }
-
-      .form-status[data-state='error'] {
-        color: #c63939;
+      .cta-visual svg {
+        width: 100%;
+        height: auto;
+        display: block;
       }
 
       .faq {
@@ -612,8 +566,8 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .workflow-track {
-          display: none;
+        .cta-shell {
+          grid-template-columns: 1fr;
         }
 
         .step {
@@ -622,17 +576,13 @@
           border-top: 0;
         }
 
-        .step::before {
-          display: none;
-        }
-
         .step-index {
           font-size: clamp(4.3rem, 13vw, 5.5rem);
           opacity: 0.13;
         }
 
         .step h3 {
-          margin-top: 0.2rem;
+          margin-top: 0.45rem;
         }
       }
 
@@ -661,8 +611,7 @@
           font-size: 0.95rem;
         }
 
-        .grid-3,
-        .form-grid {
+        .grid-3 {
           grid-template-columns: 1fr;
         }
 
@@ -683,14 +632,14 @@
           white-space: nowrap;
         }
 
+        .cta-actions .button {
+          width: 100%;
+        }
+
         .workflow {
           grid-template-columns: 1fr;
           gap: 0.35rem;
           padding-top: 0.15rem;
-        }
-
-        .workflow-track {
-          display: none;
         }
 
         .step {
@@ -702,16 +651,12 @@
           border-top: 0;
         }
 
-        .step::before {
-          display: none;
-        }
-
         .step-index {
           font-size: clamp(4rem, 18vw, 5rem);
         }
 
         .step h3 {
-          margin-top: 0.15rem;
+          margin-top: 0.4rem;
         }
 
         .topbar-inner {
@@ -732,7 +677,7 @@
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "Invora",
+        "name": "Invoicy",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
         "description": "A service that helps business owners keep invoices in one place and share clean records with accountants.",
@@ -748,13 +693,13 @@
 
     <header class="topbar" role="banner">
       <div class="container topbar-inner">
-        <a class="brand" href="#top" aria-label="Invora — go to homepage">Inv<span>ora</span></a>
+        <a class="brand" href="#top" aria-label="Invoicy — go to homepage">Invo<span>icy</span></a>
         <nav aria-label="Page sections">
           <ul>
-            <li><a href="#pain">Your challenge</a></li>
+            <li><a href="#challenge">Your challenge</a></li>
             <li><a href="#how">How it helps</a></li>
-            <li><a href="#features">What you get</a></li>
-            <li><a href="#waitlist">Waitlist</a></li>
+            <li><a href="#benefits">Benefits</a></li>
+            <li><a class="nav-cta" href="/app">Get started</a></li>
           </ul>
         </nav>
       </div>
@@ -767,12 +712,12 @@
             <span class="badge" aria-label="Product focus">Built for busy small business owners</span>
             <h1>All your business invoices in one place. No manual inbox chasing.</h1>
             <p class="lead">
-              Invora helps you keep every invoice in one clear place, so nothing gets buried in email and
+              Invoicy helps you keep every invoice in one clear place, so nothing gets buried in email and
               your accountant always has what they need.
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#waitlist">Join the waitlist</a>
-              <a class="button button-ghost" href="#how">See how it helps</a>
+              <a class="button button-primary" href="/app">Get started</a>
+              <a class="button button-ghost" href="#how">Learn more</a>
             </div>
           </div>
 
@@ -802,10 +747,10 @@
         </div>
       </section>
 
-      <section id="pain" aria-labelledby="pain-title">
+      <section id="challenge" aria-labelledby="pain-title">
         <div class="container">
           <div class="section-head">
-            <h2 id="pain-title">Why invoice admin becomes a constant distraction</h2>
+            <h2 id="pain-title">Why invoices still take too much effort</h2>
             <p>
               You are already focused on sales, team, and growth. When invoices come from everywhere,
               it is easy to lose track and hard to keep accounting clean without extra effort.
@@ -853,14 +798,13 @@
       <section id="how" aria-labelledby="how-title">
         <div class="container">
           <div class="section-head">
-            <h2 id="how-title">How Invora helps in practice</h2>
+            <h2 id="how-title">How Invoicy helps in practice</h2>
             <p>
-              Invora turns scattered invoice files into a simple shared view, so your accounting flow stays
+              Invoicy turns scattered invoice files into a simple shared view, so your accounting flow stays
               organized without constant manual follow-up.
             </p>
           </div>
           <div class="workflow" role="list" aria-label="Invoice flow">
-            <div class="workflow-track" aria-hidden="true"></div>
             <article class="step" role="listitem">
               <span class="step-index" aria-hidden="true">1</span>
               <h3>Invoices come in</h3>
@@ -869,7 +813,7 @@
             <article class="step" role="listitem">
               <span class="step-index" aria-hidden="true">2</span>
               <h3>Relevant docs are identified</h3>
-              <p>Invora picks up real invoices and ignores files that do not belong in accounting.</p>
+              <p>Invoicy picks up real invoices and ignores files that do not belong in accounting.</p>
             </article>
             <article class="step" role="listitem">
               <span class="step-index" aria-hidden="true">3</span>
@@ -885,10 +829,10 @@
         </div>
       </section>
 
-      <section id="features" aria-labelledby="features-title">
+      <section id="benefits" aria-labelledby="features-title">
         <div class="container">
           <div class="section-head">
-            <h2 id="features-title">What you get</h2>
+            <h2 id="features-title">Benefits</h2>
             <p>Three practical outcomes you feel in day-to-day work, not just in reports.</p>
           </div>
           <div class="grid-3">
@@ -908,64 +852,37 @@
         </div>
       </section>
 
-      <section class="cta" id="waitlist" aria-labelledby="waitlist-title">
+      <section class="cta" id="start" aria-labelledby="start-title">
         <div class="container cta-wrap">
-          <div class="section-head">
-            <h2 id="waitlist-title">Join the waitlist</h2>
-            <p>
-              Be first to try Invora and shape the product with early feedback.
-            </p>
-          </div>
-
-          <form
-            id="waitlistForm"
-            action="https://hook.eu1.make.com/6n4p2lfnj41wkp4kjge0ohde4wcnyuc9"
-            method="post"
-            aria-describedby="waitlist-note"
-            novalidate
-          >
-            <div class="form-grid">
-              <div>
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-error" />
-                <p class="field-error" id="name-error"></p>
-              </div>
-              <div>
-                <label for="email">Work email</label>
-                <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" />
-                <p class="field-error" id="email-error"></p>
-              </div>
-              <div>
-                <label for="business">Company name</label>
-                <input id="business" name="business" type="text" autocomplete="organization" />
-              </div>
-              <div>
-                <label for="volume">How many invoices per month?</label>
-                <select id="volume" name="invoice_volume" required aria-describedby="volume-error">
-                  <option value="" selected disabled>Select a range</option>
-                  <option value="1-20">1-20</option>
-                  <option value="21-50">21-50</option>
-                  <option value="51-100">51-100</option>
-                  <option value="100+">100+</option>
-                </select>
-                <p class="field-error" id="volume-error"></p>
+          <div class="cta-shell">
+            <div class="cta-main">
+              <h2 id="start-title">Start using Invoicy</h2>
+              <p class="cta-copy">
+                Move from scattered invoice files to a clean, reliable workflow your accountant can trust.
+              </p>
+              <div class="cta-actions">
+                <a class="button button-primary" href="/app">Get started</a>
               </div>
             </div>
-
-            <label class="checkbox" for="consent">
-              <input id="consent" name="consent" type="checkbox" required aria-describedby="consent-error" />
-              <span>I agree to be contacted about early access and product updates.</span>
-            </label>
-            <p class="field-error" id="consent-error"></p>
-
-            <input type="hidden" name="source" value="invora-landing" />
-
-            <button class="button button-primary" type="submit" id="waitlistSubmit">Join waitlist</button>
-            <p class="form-status" id="waitlist-status" role="status" aria-live="polite"></p>
-            <p class="form-note" id="waitlist-note">
-              We will only use your details to contact you about Invora.
-            </p>
-          </form>
+            <figure class="cta-visual" aria-label="Invoicy workspace illustration">
+              <svg viewBox="0 0 520 330" role="img" aria-labelledby="cta-illu-title cta-illu-desc">
+                <title id="cta-illu-title">Invoicy start illustration</title>
+                <desc id="cta-illu-desc">Illustration of invoice records moving into one organized workspace.</desc>
+                <rect x="24" y="24" width="472" height="282" rx="18" fill="color-mix(in srgb, var(--surface) 88%, transparent)" stroke="var(--line)" />
+                <rect x="56" y="60" width="138" height="80" rx="12" fill="var(--surface)" stroke="var(--line)" />
+                <rect x="326" y="60" width="138" height="80" rx="12" fill="var(--surface)" stroke="var(--line)" />
+                <rect x="150" y="184" width="220" height="94" rx="14" fill="var(--surface)" stroke="var(--line)" />
+                <path d="M190 138 C212 165 240 172 256 184" fill="none" stroke="var(--accent)" stroke-width="2.3" stroke-linecap="round" />
+                <path d="M332 138 C310 165 282 172 266 184" fill="none" stroke="var(--accent)" stroke-width="2.3" stroke-linecap="round" />
+                <circle cx="256" cy="183" r="4" fill="var(--accent)" />
+                <text x="125" y="93" fill="var(--text)" font-size="14" text-anchor="middle" font-family="Manrope, sans-serif">Incoming files</text>
+                <text x="125" y="114" fill="var(--text-muted)" font-size="11" text-anchor="middle" font-family="Instrument Sans, sans-serif">email and uploads</text>
+                <text x="395" y="93" fill="var(--text)" font-size="14" text-anchor="middle" font-family="Manrope, sans-serif">Organized records</text>
+                <text x="395" y="114" fill="var(--text-muted)" font-size="11" text-anchor="middle" font-family="Instrument Sans, sans-serif">ready for accounting</text>
+                <text x="260" y="220" fill="var(--text)" font-size="15" text-anchor="middle" font-family="Manrope, sans-serif">Start working in one place</text>
+              </svg>
+            </figure>
+          </div>
         </div>
       </section>
 
@@ -976,16 +893,16 @@
           </div>
           <div class="faq">
             <details>
-              <summary>Who is Invora best for?</summary>
+              <summary>Who is Invoicy best for?</summary>
               <p>Owners of micro and small businesses who want cleaner accounting without building an internal finance team.</p>
             </details>
             <details>
               <summary>Will this add more work for my team?</summary>
-              <p>No. Invora is designed to fit into everyday routines so people can keep working as usual.</p>
+              <p>No. Invoicy is designed to fit into everyday routines so people can keep working as usual.</p>
             </details>
             <details>
               <summary>Is it relevant for businesses in Europe?</summary>
-              <p>Yes. Invora is built with European small businesses and their common invoice needs in mind.</p>
+              <p>Yes. Invoicy is built with European small businesses and their common invoice needs in mind.</p>
             </details>
           </div>
         </div>
@@ -994,7 +911,7 @@
 
     <footer>
       <div class="container">
-        <p>© <span id="year"></span> Invora. A simpler way to keep business invoices under control.</p>
+        <p>© <span id="year"></span> Invoicy. A simpler way to keep business invoices under control.</p>
       </div>
     </footer>
 
@@ -1011,128 +928,6 @@
           syncTheme();
           if (mql.addEventListener) mql.addEventListener('change', syncTheme);
           else if (mql.addListener) mql.addListener(syncTheme);
-        }
-
-        var form = document.getElementById('waitlistForm');
-        var submitButton = document.getElementById('waitlistSubmit');
-        var statusNode = document.getElementById('waitlist-status');
-
-        function getErrorNode(field) {
-          return document.getElementById(field.id + '-error');
-        }
-
-        function setStatus(message, state) {
-          if (!statusNode) return;
-          statusNode.textContent = message;
-          statusNode.setAttribute('data-state', state || '');
-        }
-
-        function clearStatus() {
-          if (!statusNode) return;
-          statusNode.textContent = '';
-          statusNode.removeAttribute('data-state');
-        }
-
-        function getValidationMessage(field) {
-          if (field.validity.valueMissing) {
-            if (field.id === 'name') return 'Please enter your name.';
-            if (field.id === 'email') return 'Please enter your work email.';
-            if (field.id === 'volume') return 'Please choose your monthly invoice range.';
-            if (field.id === 'consent') return 'Please confirm consent to continue.';
-            return 'Please fill out this field.';
-          }
-          if (field.type === 'email' && field.validity.typeMismatch) {
-            return 'Please enter a valid email address.';
-          }
-          return '';
-        }
-
-        function setFieldError(field, message) {
-          var errorNode = getErrorNode(field);
-          field.setAttribute('aria-invalid', 'true');
-          if (errorNode) {
-            errorNode.textContent = message;
-          }
-        }
-
-        function clearFieldError(field) {
-          var errorNode = getErrorNode(field);
-          field.removeAttribute('aria-invalid');
-          if (errorNode) {
-            errorNode.textContent = '';
-          }
-        }
-
-        function validateField(field) {
-          if (field.checkValidity()) {
-            clearFieldError(field);
-            return true;
-          }
-          setFieldError(field, getValidationMessage(field));
-          return false;
-        }
-
-        if (form) {
-          var requiredFields = Array.prototype.slice.call(form.querySelectorAll('[required]'));
-
-          requiredFields.forEach(function (field) {
-            var eventName = field.type === 'checkbox' || field.tagName === 'SELECT' ? 'change' : 'input';
-            field.addEventListener(eventName, function () {
-              clearFieldError(field);
-              clearStatus();
-            });
-          });
-
-          form.addEventListener('submit', function (event) {
-            event.preventDefault();
-            clearStatus();
-
-            var isFormValid = true;
-            var firstInvalidField = null;
-
-            requiredFields.forEach(function (field) {
-              var valid = validateField(field);
-              if (!valid && !firstInvalidField) {
-                firstInvalidField = field;
-              }
-              if (!valid) {
-                isFormValid = false;
-              }
-            });
-
-            if (!isFormValid) {
-              setStatus('Please check the highlighted fields and try again.', 'error');
-              if (firstInvalidField) firstInvalidField.focus();
-              return;
-            }
-
-            if (submitButton) {
-              submitButton.disabled = true;
-              submitButton.textContent = 'Sending...';
-            }
-
-            fetch(form.action, {
-              method: form.method || 'POST',
-              body: new FormData(form)
-            })
-              .then(function (response) {
-                if (!response.ok) {
-                  throw new Error('Request failed');
-                }
-                form.reset();
-                requiredFields.forEach(clearFieldError);
-                setStatus('Thanks, you are on the waitlist. We will reach out soon.', 'success');
-              })
-              .catch(function () {
-                setStatus('Could not submit the form right now. Please try again in a moment.', 'error');
-              })
-              .finally(function () {
-                if (submitButton) {
-                  submitButton.disabled = false;
-                  submitButton.textContent = 'Join waitlist';
-                }
-              });
-          });
         }
 
         var year = document.getElementById('year');
