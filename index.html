@@ -320,7 +320,7 @@
       }
 
       .hero-illustration figcaption {
-        margin-top: 0.7rem;
+        margin-top: calc(0.7rem + 4px);
         color: var(--text-muted);
         font-size: 0.92rem;
         text-align: right;
@@ -369,6 +369,10 @@
         padding: 1rem;
       }
 
+      .feature {
+        padding: 1.2rem;
+      }
+
       .panel-visual {
         width: 100%;
         height: auto;
@@ -403,6 +407,7 @@
 
       .step-index {
         position: relative;
+        left: -4px;
         display: block;
         font-family: "Manrope", sans-serif;
         font-weight: 800;
@@ -437,8 +442,6 @@
       }
 
       .cta-wrap {
-        position: relative;
-        overflow: hidden;
         border: 1px solid var(--line);
         background: linear-gradient(
           130deg,
@@ -446,43 +449,18 @@
           color-mix(in srgb, var(--accent-soft) 42%, transparent)
         );
         border-radius: var(--radius-lg);
-        padding: clamp(1.15rem, 4vw, 2.25rem);
+        padding: clamp(1.2rem, 3.4vw, 1.9rem);
         box-shadow: var(--shadow);
       }
 
-      .cta-wrap::before {
-        content: "";
-        position: absolute;
-        width: min(48vw, 420px);
-        height: min(48vw, 420px);
-        right: -18%;
-        top: -44%;
-        border-radius: 999px;
-        background: radial-gradient(
-          circle,
-          color-mix(in srgb, var(--accent) 22%, transparent),
-          transparent 68%
-        );
-        pointer-events: none;
-      }
-
-      .cta-shell {
-        position: relative;
-        z-index: 1;
-        display: grid;
-        grid-template-columns: 1.08fr 0.92fr;
-        gap: 1.2rem;
-        align-items: center;
-      }
-
-      .cta-main h2 {
-        margin-top: 0;
+      .cta .section-head {
+        margin-bottom: 0.55rem;
       }
 
       .cta-copy {
-        margin-top: 0.75rem;
+        margin-top: 0.6rem;
         color: var(--text-muted);
-        max-width: 48ch;
+        max-width: 56ch;
       }
 
       input:focus-visible,
@@ -499,17 +477,7 @@
         display: flex;
         gap: 0.75rem;
         flex-wrap: wrap;
-        margin-top: 1rem;
-      }
-
-      .cta-visual {
-        margin: 0;
-      }
-
-      .cta-visual svg {
-        width: 100%;
-        height: auto;
-        display: block;
+        margin-top: 0.85rem;
       }
 
       .faq {
@@ -596,10 +564,6 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .cta-shell {
-          grid-template-columns: 1fr;
-        }
-
         .step {
           min-height: auto;
           padding: 0.65rem 0.15rem 0.5rem;
@@ -612,7 +576,7 @@
         }
 
         .step h3 {
-          margin-top: 0.45rem;
+          margin-top: calc(0.45rem + 4px);
         }
       }
 
@@ -686,7 +650,7 @@
         }
 
         .step h3 {
-          margin-top: 0.4rem;
+          margin-top: calc(0.4rem + 4px);
         }
 
         .topbar-inner {
@@ -2123,134 +2087,15 @@
 
       <section class="cta" id="start" aria-labelledby="start-title">
         <div class="container cta-wrap">
-          <div class="cta-shell">
-            <div class="cta-main">
-              <h2 id="start-title">Start using Invoicy</h2>
-              <p class="cta-copy">
-                Move from scattered invoice files to a clean, reliable workflow
-                your accountant can trust.
-              </p>
-              <div class="cta-actions">
-                <a class="button button-primary" href="/app">Get started</a>
-              </div>
-            </div>
-            <figure
-              class="cta-visual"
-              aria-label="Invoicy workspace illustration"
-            >
-              <svg
-                viewBox="0 0 520 330"
-                role="img"
-                aria-labelledby="cta-illu-title cta-illu-desc"
-              >
-                <title id="cta-illu-title">Invoicy start illustration</title>
-                <desc id="cta-illu-desc">
-                  Illustration of invoice records moving into one organized
-                  workspace.
-                </desc>
-                <rect
-                  x="24"
-                  y="24"
-                  width="472"
-                  height="282"
-                  rx="18"
-                  fill="color-mix(in srgb, var(--surface) 88%, transparent)"
-                  stroke="var(--line)"
-                />
-                <rect
-                  x="56"
-                  y="60"
-                  width="138"
-                  height="80"
-                  rx="12"
-                  fill="var(--surface)"
-                  stroke="var(--line)"
-                />
-                <rect
-                  x="326"
-                  y="60"
-                  width="138"
-                  height="80"
-                  rx="12"
-                  fill="var(--surface)"
-                  stroke="var(--line)"
-                />
-                <rect
-                  x="150"
-                  y="184"
-                  width="220"
-                  height="94"
-                  rx="14"
-                  fill="var(--surface)"
-                  stroke="var(--line)"
-                />
-                <path
-                  d="M190 138 C212 165 240 172 256 184"
-                  fill="none"
-                  stroke="var(--accent)"
-                  stroke-width="2.3"
-                  stroke-linecap="round"
-                />
-                <path
-                  d="M332 138 C310 165 282 172 266 184"
-                  fill="none"
-                  stroke="var(--accent)"
-                  stroke-width="2.3"
-                  stroke-linecap="round"
-                />
-                <circle cx="256" cy="183" r="4" fill="var(--accent)" />
-                <text
-                  x="125"
-                  y="93"
-                  fill="var(--text)"
-                  font-size="14"
-                  text-anchor="middle"
-                  font-family="Manrope, sans-serif"
-                >
-                  Incoming files
-                </text>
-                <text
-                  x="125"
-                  y="114"
-                  fill="var(--text-muted)"
-                  font-size="11"
-                  text-anchor="middle"
-                  font-family="Instrument Sans, sans-serif"
-                >
-                  email and uploads
-                </text>
-                <text
-                  x="395"
-                  y="93"
-                  fill="var(--text)"
-                  font-size="14"
-                  text-anchor="middle"
-                  font-family="Manrope, sans-serif"
-                >
-                  Organized records
-                </text>
-                <text
-                  x="395"
-                  y="114"
-                  fill="var(--text-muted)"
-                  font-size="11"
-                  text-anchor="middle"
-                  font-family="Instrument Sans, sans-serif"
-                >
-                  ready for accounting
-                </text>
-                <text
-                  x="260"
-                  y="220"
-                  fill="var(--text)"
-                  font-size="15"
-                  text-anchor="middle"
-                  font-family="Manrope, sans-serif"
-                >
-                  Start working in one place
-                </text>
-              </svg>
-            </figure>
+          <div class="section-head">
+            <h2 id="start-title">Start using Invoicy</h2>
+            <p class="cta-copy">
+              Move from scattered invoice files to a clean, reliable workflow
+              your accountant can trust.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a class="button button-primary" href="/app">Get started</a>
           </div>
         </div>
       </section>
@@ -2273,6 +2118,15 @@
               <p>
                 No. Invoicy is designed to fit into everyday routines so people
                 can keep working as usual.
+              </p>
+            </details>
+            <details>
+              <summary>How is Invoicy different from tools like Revolut?</summary>
+              <p>
+                Revolut is great for banking and payments. Invoicy is focused on
+                invoice operations: collecting invoice files from your day-to-day
+                channels, organizing them in one place, and making accountant
+                handoff easier, no matter where the payment was made.
               </p>
             </details>
             <details>
